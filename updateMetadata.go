@@ -11,8 +11,7 @@ func (api *API) UpdateLicenseMetadata(license string, metadata *map[string]inter
 	body := map[string]interface{}{"metadata": metadata}
 
 	buf := &bytes.Buffer{}
-	err := json.NewEncoder(buf).Encode(body)
-	if err != nil {
+	if err := json.NewEncoder(buf).Encode(body); err != nil {
 		return nil, err
 	}
 
