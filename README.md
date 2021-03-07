@@ -1,5 +1,5 @@
 # metalabs
-A [MetaLabs](https://metalabs.io/) Golang API wrapper.
+A [MetaLabs](https://metalabs.io/) Golang API wrapper. Work in progress.
 
 ## Installation
 
