@@ -14,6 +14,18 @@ const metalabsAPIKey = "<metalabs api key>"
 api := metalabs.NewAPI(metalabsAPIKey, nil)
 
 license := "<license key>"
-licenseData, _ := api.RetrieveLicense(license)
+licenseData, err := api.RetrieveLicense(license)
+if err != nil {
+    switch err {
+    case metalabs.ErrLicenseNotFound:
+        ...
+        break
+    case metalabs.ErrUnauthorized:
+        ...
+        break
+    default:
+        ...
+    }
+}
 ...
 ```
