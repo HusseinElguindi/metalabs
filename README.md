@@ -7,6 +7,8 @@ A [MetaLabs](https://metalabs.io/) Golang API wrapper.
 go get github.com/HusseinElguindi/metalabs
 ```
 
+## Usage
+
 ```golang
 import "github.com/husseinelguindi/metalabs"
 const metalabsAPIKey = "<metalabs api key>"
@@ -18,10 +20,8 @@ licenseData, err := api.RetrieveLicense(license)
 if err != nil {
     switch err {
     case metalabs.ErrLicenseNotFound:
-        ...
         break
     case metalabs.ErrUnauthorized:
-        ...
         break
     default:
         ...
