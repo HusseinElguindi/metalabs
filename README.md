@@ -1,2 +1,2 @@
 # metalabs
-MetaLabs Golang API wrapper.
+[MetaLabs](https://metalabs.io/) Golang API wrapper.
