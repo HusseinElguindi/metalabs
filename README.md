@@ -21,6 +21,13 @@ if err != nil && err == metalabs.ErrLicenseNotFound {
     ...
 }
 ...
+
+newMetadata := map[string]interface{}{"hwid": hwid}
+licenseObj, err = api.UpdateLicenseMetadata(license, &newMetadata)
+if err != nil && err == metalabs.ErrLicenseNotFound {
+    ...
+}
+...
 ```
 
 ## Coverage
