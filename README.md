@@ -40,4 +40,4 @@ if err != nil && err == metalabs.ErrLicenseNotFound {
 - [ ] Revoke license
 - [ ] List licenses
 
-All unchecked features are quick to implement and being actively worked on.
+All unchecked features are quick to implement and actively being worked on.
