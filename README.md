@@ -1,7 +1,6 @@
 # MetaLabs API Wrapper
 A [MetaLabs](https://metalabs.io/) Golang API wrapper.
 Read the official [MetaLabs docs](https://docs.metalabs.io/reference).
-Work in progress.
 
 ## Installation
 ```bash
@@ -19,29 +18,42 @@ api := metalabs.NewAPI(metalabsAPIKey, nil)
 // The license to perform actions on
 license := "<license key>"
 
-// Retrieve license data
-licenseObj, err := api.RetrieveLicense(license)
-if err != nil && err == metalabs.ErrLicenseNotFound {
-    ...
-}
+// Create a license
+createdLicense, _ := api.CreateLicense("<plan id>", "<email>")
 
-// Update a license's metadata 
+// Retrieve license data
+retrievedLicense, _ := api.RetrieveLicense(license)
+
+// Update a license's metadata
 newMetadata := map[string]interface{}{"hwid": hwid}
-licenseObj, err = api.UpdateLicenseMetadata(license, &newMetadata)
-if err != nil && err == metalabs.ErrLicenseNotFound {
+updatedLicense, _ := api.UpdateLicenseMetadata(license, &newMetadata)
+
+// Revoke a license
+_ = api.RevokeLicense(license)
+
+// List licenses
+licensesList, _ := api.ListLicenses()
+
+// Error handling
+_, err := api.RetrieveLicense(license)
+switch err {
+case metalabs.ErrLicenseNotFound:
+    ...
+case metalabs.ErrUnauthorized:
+    ...
+case metalabs.ErrUnknown:
+    ...
+default:
     ...
 }
 ```
 
 ## Coverage
-- [ ] Create license
+- [x] Create license
 - [x] Retrieve license
 - [x] Update license metadata
-- [ ] Revoke license
-- [ ] List licenses
-
-All unchecked features are quick to implement and actively being worked on.
-
+- [x] Revoke license
+- [x] List licenses
 
 ## License
 - [BSD 3-Clause License](https://github.com/HusseinElguindi/metalabs/blob/master/LICENSE)

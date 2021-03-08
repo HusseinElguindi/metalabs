@@ -6,15 +6,18 @@ import (
 	"net/http"
 )
 
-// UpdateLicenseMetadata updates and retrieves the passed license from MetaLabs using the API object
-func (api *API) UpdateLicenseMetadata(license string, metadata *map[string]interface{}) (*License, error) {
-	body := map[string]interface{}{"metadata": metadata}
+// CreateLicense creates a new license with the passed details
+func (api *API) CreateLicense(planID, email string) (*License, error) {
+	body := map[string]interface{}{
+		"plan":  planID,
+		"email": email,
+	}
 	buf := &bytes.Buffer{}
 	if err := json.NewEncoder(buf).Encode(body); err != nil {
 		return nil, err
 	}
 
-	req, err := http.NewRequest(http.MethodPatch, EndpointLicense(license), buf)
+	req, err := http.NewRequest(http.MethodPost, EndpointLicenses, buf)
 	if err != nil {
 		return nil, err
 	}
@@ -38,11 +41,11 @@ func (api *API) UpdateLicenseMetadata(license string, metadata *map[string]inter
 		return nil, ErrUnknown
 	}
 
-	updatedLicense := &License{}
-	err = json.NewDecoder(resp.Body).Decode(updatedLicense)
+	createdLicense := &License{}
+	err = json.NewDecoder(resp.Body).Decode(createdLicense)
 	if err != nil {
 		return nil, err
 	}
 
-	return updatedLicense, nil
+	return createdLicense, nil
 }
