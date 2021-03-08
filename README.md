@@ -41,3 +41,7 @@ if err != nil && err == metalabs.ErrLicenseNotFound {
 - [ ] List licenses
 
 All unchecked features are quick to implement and actively being worked on.
+
+
+## License
+- [BSD 3-Clause License](https://github.com/HusseinElguindi/metalabs/blob/master/LICENSE)
