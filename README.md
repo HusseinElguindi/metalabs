@@ -14,20 +14,18 @@ import "github.com/husseinelguindi/metalabs"
 const metalabsAPIKey = "<metalabs api key>"
 
 api := metalabs.NewAPI(metalabsAPIKey, nil)
-
 license := "<license key>"
+
 licenseObj, err := api.RetrieveLicense(license)
 if err != nil && err == metalabs.ErrLicenseNotFound {
     ...
 }
-...
 
 newMetadata := map[string]interface{}{"hwid": hwid}
 licenseObj, err = api.UpdateLicenseMetadata(license, &newMetadata)
 if err != nil && err == metalabs.ErrLicenseNotFound {
     ...
 }
-...
 ```
 
 ## Coverage
