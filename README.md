@@ -44,4 +44,4 @@ All unchecked features are quick to implement and actively being worked on.
 
 
 ## License
-- [BSD 3-Clause License](https://github.com/HusseinElguindi/metalabs/blob/2e2eb8f024e377116222818fccc9b877cc7e6524/LICENSE)
+- [BSD 3-Clause License](https://github.com/HusseinElguindi/metalabs/blob/master/LICENSE)
