@@ -59,7 +59,7 @@ type RetrieveLicenseResponse struct {
 
 // RetrieveLicense retrieves the passed license from MetaLabs using the API object
 func (api *API) RetrieveLicense(license string) (*RetrieveLicenseResponse, error) {
-	req, err := http.NewRequest("GET", EndpointLicense(license), nil)
+	req, err := http.NewRequest(http.MethodGet, EndpointLicense(license), nil)
 	if err != nil {
 		return nil, err
 	}

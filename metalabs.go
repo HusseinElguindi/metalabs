@@ -8,7 +8,7 @@ import (
 
 // Represents global API errors
 var (
-	ErrUnauthorized = errors.New("licence not found")
+	ErrUnauthorized = errors.New("metalabs api key is unauthorized")
 	ErrUnknown      = errors.New("an unknown error occurred")
 )
 
